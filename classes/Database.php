@@ -3,7 +3,7 @@
 class Database {
     private $host   = 'localhost';
     private $user   = 'root';
-    private $pass   = '123456'; //not real
+    private $pass   = '12345'; 
     private $dbname = 'phpdev_db';
 
     private $dbh;
@@ -45,9 +45,20 @@ class Database {
                 break;
             case is_null($value):
                 $type = PDO::PARAM_NULL;
+                break;
+            default:
+            $type = PDO::PARAM_STR;
             }
         }
         $this->stmt->bindValue($param, $value, $type);
     }
 
+    public function execute(){
+        return $this->stmt->execute();
+    }
+
+    public function resultset(){
+        $this->execute();
+        return $this->stmt->fetch_All(PDO::FETCH_ASSOC);
+    }
 }
