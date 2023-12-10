@@ -33,7 +33,7 @@ class Database {
 
      // Prepare an SQL query for execution
     public function query($query){
-        $this->stmt = $this->dbConnection->prepare($query);
+        $this->statement = $this->dbConnection->prepare($query);
     }
 
     // Bind a parameter with its value and data type
