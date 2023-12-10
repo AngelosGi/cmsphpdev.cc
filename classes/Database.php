@@ -1,18 +1,18 @@
 <?php
 
 class Database {
-    private $host   = 'localhost';
-    private $user   = 'root';
-    private $pass   = '12345'; 
-    private $dbname = 'phpdev_db';
+    private $dbHost   = 'localhost';
+    private $dbUser   = 'root';
+    private $dbPass   = '123456'; 
+    private $dbName = 'phpdev_db';
 
-    private $dbh;
+    private $dbConnection;
     private $error;
-    private $stmt;
+    private $statement;
 
     public function __construct(){
-        //set DSN
-        $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
+        //Set Data Source Name (DSN)
+        $dsn = 'mysql:host=' . $this->dbHost . ';dbName=' . $this->dbName;
         //set Options
         $options = array(
             PDO::ATTR_PERSISTENT  => true,
@@ -20,21 +20,24 @@ class Database {
         );
         //Create new PDO
         try{
-            $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
+            $this->dbConnection = new PDO($dsn, $this->dbUser, $this->dbPass, $options);
         } catch(PDOException $e) {
             $this->error = $e->getMessage();
         }
     }
 
+    // Check if the database connection is successful
     public function isConnected() {
-        return $this->dbh !== null && empty($this->error);
+        return $this->dbConnection !== null && empty($this->error);
     }
 
+     // Prepare an SQL query for execution
     public function query($query){
-        $this->stmt = $this->dbh->prepare($query);
+        $this->stmt = $this->dbConnection->prepare($query);
     }
 
-    public function bind($param, $value, $type = null){
+    // Bind a parameter with its value and data type
+    public function bindParameter($param, $value, $type = null){
         if(is_null($type)){
             switch(true){
             case is_int($value);
@@ -50,15 +53,17 @@ class Database {
             $type = PDO::PARAM_STR;
             }
         }
-        $this->stmt->bindValue($param, $value, $type);
+        $this->statement->bindValue($param, $value, $type);
     }
 
-    public function execute(){
-        return $this->stmt->execute();
+    // Execute the prepared query
+    public function executeQuery(){
+        return $this->statement->execute();
     }
 
-    public function resultset(){
-        $this->execute();
-        return $this->stmt->fetch_All(PDO::FETCH_ASSOC);
+     // Execute the query and fetch all results
+    public function fetchAllResults(){
+        $this->executeQuery();
+        return $this->statement->fetch_All(PDO::FETCH_ASSOC);
     }
 }
