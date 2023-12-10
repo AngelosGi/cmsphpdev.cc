@@ -3,7 +3,7 @@
 class Database {
     private $dbHost   = 'localhost';
     private $dbUser   = 'root';
-    private $dbPass   = '123456'; 
+    private $dbPass   = '338456'; 
     private $dbName = 'phpdev_db';
 
     private $dbConnection;
@@ -12,7 +12,7 @@ class Database {
 
     public function __construct(){
         //Set Data Source Name (DSN)
-        $dsn = 'mysql:host=' . $this->dbHost . ';dbName=' . $this->dbName;
+        $dsn = 'mysql:host=' . $this->dbHost . ';dbname=' . $this->dbName;
         //set Options
         $options = array(
             PDO::ATTR_PERSISTENT  => true,
@@ -36,7 +36,7 @@ class Database {
         $this->statement = $this->dbConnection->prepare($query);
     }
 
-    // Bind a parameter with its value and data type
+    // Bind a parameter with value and data type
     public function bindParameter($param, $value, $type = null){
         if(is_null($type)){
             switch(true){
@@ -61,9 +61,13 @@ class Database {
         return $this->statement->execute();
     }
 
+    public function lastInsertId(){
+        $this->dbConnection->lastInsertId();
+    }
+
      // Execute the query and fetch all results
     public function fetchAllResults(){
         $this->executeQuery();
-        return $this->statement->fetch_All(PDO::FETCH_ASSOC);
+        return $this->statement->fetchAll(PDO::FETCH_ASSOC);
     }
 }
