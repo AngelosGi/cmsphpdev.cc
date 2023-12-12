@@ -3,7 +3,7 @@
 class Database {
     private $dbHost   = 'localhost';
     private $dbUser   = 'root';
-    private $dbPass   = '338456'; 
+    private $dbPass   = '123456'; 
     private $dbName = 'phpdev_db';
 
     private $dbConnection;
