@@ -1,6 +1,6 @@
 <?php
 
-class ShareModel{
+class ShareModel extends Model{
     public function Index(){
         return;
     }
