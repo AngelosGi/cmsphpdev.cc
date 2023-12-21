@@ -1,8 +1,8 @@
 <?php
 
-class Shares extends Controller {
+class Posts extends Controller {
     protected function Index(){
-        $viewmodel = new ShareModel();
+        $viewmodel = new PostModel();
         $this->ReturnView($viewmodel->Index(), true);
     }
 }

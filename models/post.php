@@ -1,6 +1,6 @@
 <?php
 
-class ShareModel extends Model{
+class PostModel extends Model{
     public function Index(){
         $this->query('SELECT * FROM shares');
         $rows = $this->resultSet();

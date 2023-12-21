@@ -10,5 +10,5 @@ define("DB_NAME", "postboarddb");
 //define URL
 
 define("ROOT_PATH", "/");
-define('ROOT_URL', 'http://localhost/cmsphpdev.cc');
+define('ROOT_URL', 'http://localhost/cmsphpdev.cc/');
 
