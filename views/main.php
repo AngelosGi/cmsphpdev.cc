@@ -25,13 +25,13 @@
         </li>
       </ul>
 
-      <!-- <ul class="navbar-nav  mb-2 mb-md-0 navbar-right">
+      <ul class="navbar-nav  mb-2 mb-md-0 navbar-right">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="<?php echo ROOT_URL?>users//login">Login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="<?php echo ROOT_URL?>users/register">Register</a>
-        </li> -->
+        </li>
         
       </ul>
 

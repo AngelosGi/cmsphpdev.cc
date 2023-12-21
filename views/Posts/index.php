@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center flex-column align-items-center">
-    <!-- <a class="btn btn-success btn-share" href="<?php echo ROOT_PATH; ?>shares/add">Share Something</a> -->
+    <a class="btn btn-success btn-share" href="<?php echo ROOT_PATH; ?>posts/add">Share Something</a>
     <?php foreach($viewmodel as $item) : ?>
 
 
