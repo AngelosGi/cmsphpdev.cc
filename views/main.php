@@ -10,7 +10,7 @@
 </head>
 <body>
 <!-- navbar-dark fixed-top bg-dark -->
-<nav class="navbar navbar-expand-md navbar-default">
+<nav class="navbar navbar-expand-md bg-light mb-4">
   <div class="container-fluid">
     <a class="navbar-brand" href="<?php echo ROOT_URL?>">cmsphpdev.cc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
