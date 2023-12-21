@@ -6,4 +6,8 @@ class PostModel extends Model{
         $rows = $this->resultSet();
         return $rows;
     }
+
+    public function add(){
+        return;
+    }
 }
