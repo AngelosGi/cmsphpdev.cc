@@ -28,5 +28,3 @@ class PostModel extends Model{
         return;
     }
 }
-//need to fix
-//If the title field in the $_POST array is not set or if it's an empty string, filter_input_array will sanitize it to null.
