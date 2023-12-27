@@ -3,7 +3,7 @@
     <?php foreach($viewmodel as $item) : ?>
 
 
-        <div class="card bg-light mb-3 d-flex justify-content-center" style="max-width: 70rem;">
+        <div class="card bg-light mb-3 d-flex justify-content-center" style="min-width: 60vw; max-width: 60vw;">
         <div class="card-header "><small><?php echo $item['create_date']; ?></small></div>
         <div class="card-body">
             <h5 class="card-title"><?php echo $item['title'] ?></h5>
