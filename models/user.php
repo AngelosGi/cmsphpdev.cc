@@ -46,7 +46,7 @@ class UserModel extends Model{
                 );
                 header('Location: '.ROOT_URL.'posts');
             } else {
-                echo 'Incorrect Login';
+                Messages::setMsg('Incorrect Login', 'error');
             }
         }
         return;
