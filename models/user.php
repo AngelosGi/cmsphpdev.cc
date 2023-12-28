@@ -38,7 +38,13 @@ class UserModel extends Model{
             $row = $this->single();
             
             if($row){
-                echo 'Logged in';
+                $_SESSION['is_logged_in'] = true;
+                $_SESSION['user_data'] = array(
+                    'id' => $row['id'],
+                    'name' => $row['name'],
+                    'email' => $row['email']
+                );
+                header('Location: '.ROOT_URL.'posts');
             } else {
                 echo 'Incorrect Login';
             }
