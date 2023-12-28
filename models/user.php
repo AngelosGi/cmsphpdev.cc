@@ -28,18 +28,17 @@ class UserModel extends Model{
         
         $password = md5($post['password']);
         
-        if($post && $post['submit'] && !empty($post['name'])){
-            // Insert into MySQL
+        if($post['submit']){
+            // compare
             $this->query('SELECT * FROM users WHERE email = :email AND password = :password');
             $this->bind(':email', $post['email']);
             $this->bind(':password', $password);
-            $this->execute();
-            // Verify
-            if($this->lastInsertId()){
-                //redirect
-                header('Location: '.ROOT_URL.'users/login');
+            $row = $this->single();
+            if($row){
+                echo 'Logged in';
+            } else {
+                echo 'Incorrect Login';
             }
-
         }
         return;
     }
